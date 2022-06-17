@@ -52,7 +52,7 @@ pipeline {
             {
                 when {
                     // Only for INT environment and BUILD Deployment type.
-                    expression { params.ENVIRONMENT == 'DEV'  &&  params.DEPLOYMENT_TYPE == 'BUILD' }
+                    expression { params.ENVIRONMENT == 'issam-mejri-ext-dev'  &&  params.DEPLOYMENT_TYPE == 'BUILD' }
                 }
                 steps
                 {
