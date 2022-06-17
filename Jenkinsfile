@@ -82,7 +82,7 @@ pipeline {
 		stage("Create route to access the Application")
             	{
                  when {
-                    expression { params.ENVIRONMENT == 'issam-mejri-ext-dev'  params.DEPLOYMENT_TYPE == 'DEPLOY' }
+                    expression { params.ENVIRONMENT == 'issam-mejri-ext-dev' && params.DEPLOYMENT_TYPE == 'DEPLOY' }
                  }
                 steps
                 { 
