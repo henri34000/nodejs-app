@@ -56,7 +56,7 @@ pipeline {
                     script
                     {
                        sh """
-                        oc create -f nodejs-image-demo-build.yaml
+                        oc apply -f nodejs-image-demo-build.yaml
                         """
                     } // script
                 } // steps
@@ -73,8 +73,8 @@ pipeline {
                     script
                     {
                        sh """
-                        oc create -f nodejs-image-demo-deploy.yaml -n ${params.ENVIRONMENT}
-                        oc create -f nodejs-image-demo-svc.yaml -n ${params.ENVIRONMENT}
+                        oc apply -f nodejs-image-demo-deploy.yaml -n ${params.ENVIRONMENT}
+                        oc apply -f nodejs-image-demo-svc.yaml -n ${params.ENVIRONMENT}
                         """
                     } // script
                 } // steps
