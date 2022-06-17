@@ -1,0 +1,36 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  namespace: issam-mejri-ext-dev
+  name: nodejs-image-demo
+  labels:
+    app: nodejs-image-demo
+    app.kubernetes.io/component: nodejs-image-demo
+    app.kubernetes.io/instance: nodejs-image-demo
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'nodejs-image-demo:v1.0'
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'node:10-alpine'
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/do-community/nodejs-image-demo.git'
+  triggers:
+    - type: GitHub
+      github:
+        secret: 3GRrLUNEbz7r_lcxGCmF
+    - type: Generic
+      generic:
+        secret: 08IyMw4s1EsUbIba1sOZ
+    - type: ConfigChange
+    - type: ImageChange
