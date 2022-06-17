@@ -79,7 +79,24 @@ pipeline {
                     } // script
                 } // steps
             } // stage
+
+		stage("Create route to access the Application")
+            	{
+                 when {
+                    expression { params.ENVIRONMENT == 'issam-mejri-ext-dev'  params.DEPLOYMENT_TYPE == 'DEPLOY' }
+                 }
+                steps
+                { 
+                    script
+                    {
+			sh """
+                        	oc expose svc/nodejs-image-demo -n ${params.ENVIRONMENT}
+			"""
+                    } // script
+                } // steps
+            } // stage
         } // stages
+
         post 
         {
             always 
