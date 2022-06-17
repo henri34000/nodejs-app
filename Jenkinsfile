@@ -1,8 +1,4 @@
 
-/***************************************/
- /* VARIABLES TO CHANGE WHEN COPIED    */
- /**************************************/
-
 
 pipeline {
 
@@ -59,7 +55,7 @@ pipeline {
 
                     script
                     {
-                        oc create -f nodejs-image-demo-build
+                        oc create -f nodejs-image-demo-build.yaml
                         oc start build bc/nodejs-image-demo
                     } // script
                 } // steps
