@@ -47,16 +47,17 @@ pipeline {
             stage("Build Source Code")
             {
                 when {
-                    // Only for INT environment and BUILD Deployment type.
-                    expression { params.ENVIRONMENT == 'issam-mejri-ext-dev'  &&  params.DEPLOYMENT_TYPE == 'BUILD' }
+                    // Only for BUILD Deployment type.
+                    expression { params.DEPLOYMENT_TYPE == 'BUILD' }
                 }
                 steps
                 {
 
                     script
                     {
+                       sh """
                         oc create -f nodejs-image-demo-build.yaml
-                        oc start build bc/nodejs-image-demo
+                        """
                     } // script
                 } // steps
             } // stage
@@ -71,8 +72,10 @@ pipeline {
                 { 
                     script
                     {
+                       sh """
                         oc create -f nodejs-image-demo-deploy.yaml -n ${params.ENVIRONMENT}
                         oc create -f nodejs-image-demo-svc.yaml -n ${params.ENVIRONMENT}
+                        """
                     } // script
                 } // steps
             } // stage
