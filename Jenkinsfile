@@ -60,8 +60,7 @@ pipeline {
                         """
                     } // script
                 } // steps
-            } // stage
-            
+            } // stage   
 
             stage("Deploy resources for DEV/STAGE environments.")
             {
@@ -90,7 +89,7 @@ pipeline {
                     script
                     {
 			sh """
-                        	oc expose svc/nodejs-image-demo -n ${params.ENVIRONMENT}
+                       	   oc expose svc/nodejs-image-demo
 			"""
                     } // script
                 } // steps
