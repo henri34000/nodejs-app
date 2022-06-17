@@ -47,7 +47,7 @@ pipeline {
             stage("Build Source Code")
             {
                 when {
-                    // Only for INT environment and BUILD Deployment type.
+                    // Only for BUILD Deployment type.
                     expression { params.ENVIRONMENT == 'issam-mejri-ext-dev'  &&  params.DEPLOYMENT_TYPE == 'BUILD' }
                 }
                 steps
