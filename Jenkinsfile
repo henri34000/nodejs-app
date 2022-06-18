@@ -56,7 +56,7 @@ pipeline {
                     script
                     {
                        sh """
-                        oc new-build -i node:16-ubi8 ${params.SOURCES_URL}
+                        oc new-build --image-stream="openshift/nodejs:16-ubi8 ${params.SOURCES_URL}
                         """
                     } // script 
                 } // steps
