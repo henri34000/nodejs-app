@@ -89,7 +89,7 @@ pipeline {
                     script
                     {
 			sh """
-                       	   oc expose svc/nodejs-image-demo
+                       	   oc apply -f nodejs-image-demo-route.yaml -n ${params.ENVIRONMENT}
 			"""
                     } // script
                 } // steps
