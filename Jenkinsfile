@@ -57,7 +57,7 @@ pipeline {
                     {
                        sh """
                         oc apply -f nodejs-image-demo-build.yaml
-			oc new-build bc/nodejs-image-demo
+			oc start-build bc/nodejs-image-demo
                         """
                     } // script 
                 } // steps
