@@ -1,0 +1,15 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: nodejs-image-demo
+  labels:
+    app: nodejs-image-demo
+spec:
+  host: >-
+    nodejs-image-demo-issam-mejri-ext-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+  to:
+    kind: Service
+    name: nodejs-image-demo
+    weight: 100
+  port:
+    targetPort: 8080-tcp
