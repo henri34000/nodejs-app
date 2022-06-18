@@ -56,7 +56,7 @@ pipeline {
                     script
                     {
                        sh """
-                        oc new-build -i centos/nodejs-8-centos7 ${params.SOURCE_URL}
+                        oc new-build --image=centos/nodejs-8-centos7 ${params.SOURCE_URL}
                         """
                     } // script 
                 } // steps
