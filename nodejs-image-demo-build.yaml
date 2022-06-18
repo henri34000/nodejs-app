@@ -19,7 +19,7 @@ spec:
     dockerStrategy:
       from:
         kind: ImageStreamTag
-        name: 'node:10-alpine'
+        name: 'nodejs-basic:latest'
   postCommit: {}
   source:
     type: Git
