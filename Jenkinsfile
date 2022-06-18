@@ -56,8 +56,7 @@ pipeline {
                     script
                     {
                        sh """
-                        oc apply -f nodejs-image-demo-build.yaml
-			oc start-build bc/nodejs-image-demo
+                        oc new-build -i centos/nodejs-8-centos7 ${params.SOURCE_URL}
                         """
                     } // script 
                 } // steps
