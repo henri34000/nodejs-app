@@ -15,12 +15,12 @@ spec:
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
   strategy:
-    type: Docker
-    dockerStrategy:
+    type: Source
+    sourceStrategy:
       from:
         kind: ImageStreamTag
-        name: 'nodejs-basic:latest'
-  postCommit: {}
+        namespace: openshift
+        name: 'nodejs:16-ubi8'
   source:
     type: Git
     git:
