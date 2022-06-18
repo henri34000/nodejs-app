@@ -56,10 +56,10 @@ pipeline {
                     script
                     {
                        sh """
-                        oc apply -f nodejs-image-demo-build.yaml
-			oc start-build bc/nodejs-image-demo
+                        oc create -f nodejs-image-demo-build.yaml
+			
                         """
-                    } // script
+                    } // script oc start-build bc/nodejs-image-demo
                 } // steps
             } // stage   
 
