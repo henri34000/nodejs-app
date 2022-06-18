@@ -60,8 +60,7 @@ pipeline {
                         """
                     } // script
                 } // steps
-            } // stage
-            
+            } // stage   
 
             stage("Deploy resources for DEV/STAGE environments.")
             {
@@ -83,14 +82,14 @@ pipeline {
 		stage("Create route to access the Application")
             	{
                  when {
-                    expression { params.ENVIRONMENT == 'issam-mejri-ext-dev'  params.DEPLOYMENT_TYPE == 'DEPLOY' }
+                    expression { params.ENVIRONMENT == 'issam-mejri-ext-dev' && params.DEPLOYMENT_TYPE == 'DEPLOY' }
                  }
                 steps
                 { 
                     script
                     {
 			sh """
-                        	oc expose svc/nodejs-image-demo -n ${params.ENVIRONMENT}
+                       	   oc expose svc/nodejs-image-demo
 			"""
                     } // script
                 } // steps
