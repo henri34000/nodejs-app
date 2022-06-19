@@ -16,7 +16,8 @@ pipeline {
             string(name: 'BRANCH', defaultValue: 'master', description: 'Name of the branch to use.')
             choice(name: 'ENVIRONMENT', choices: ['issam-mejri-ext-dev', 'issam-mejri-ext-stage'], description: 'The name of the environement where we want to deploy/build resources.')
             choice(name: 'DEPLOYMENT_TYPE', choices: ['','BUILD', 'DEPLOY'], description: 'The name of the type of deployment to process, can be either Build or Deploy.')
-            string(name: 'SOURCES_URL', defaultValue: 'https://github.com/imejri/nodejs-app.git', description: 'Gitlab repository source of the application.')
+            string(name: 'IMAGE_TAG', defaultValue: '', description: 'tag for the build image.')
+	    string(name: 'SOURCES_URL', defaultValue: 'https://github.com/imejri/nodejs-app.git', description: 'Gitlab repository source of the application.')
 
         }
 
@@ -56,7 +57,7 @@ pipeline {
                     script
                     {
                        sh """
-                        oc new-build --name=nodejs-image --image-stream=openshift/nodejs:16-ubi8 ${params.SOURCES_URL} --to='nodejs-image:${GIT_COMMIT}'
+                        oc new-build --name=nodejs-image --image-stream=openshift/nodejs:16-ubi8 ${params.SOURCES_URL} --to='nodejs-image:${params.IMAGE_TAG}'
                         """
                     } // script 
                 } // steps
