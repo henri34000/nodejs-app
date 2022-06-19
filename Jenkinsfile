@@ -56,7 +56,7 @@ pipeline {
                     script
                     {
                        sh """
-                        oc new-build --name=nodejs-image --image-stream=openshift/nodejs:16-ubi8 ${params.SOURCES_URL} --to='nodejs-image:v1.1'
+                        oc new-build --name=nodejs-image --image-stream=openshift/nodejs:16-ubi8 ${params.SOURCES_URL} --to='nodejs-image:${GIT_COMMIT}'
                         """
                     } // script 
                 } // steps
