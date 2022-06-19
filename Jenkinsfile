@@ -1,4 +1,6 @@
 
+/* Pipeline Jenkins to build et deploy nodejs Shark App */
+/* Auteur: Mejri Issam */
 
 pipeline {
 
