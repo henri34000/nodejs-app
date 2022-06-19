@@ -75,7 +75,7 @@ pipeline {
                     {
                        sh """
                         oc apply -f nodejs-image-demo-deploy.yaml -n ${params.ENVIRONMENT}
-			oc set image deployment/nodejs-image-demo nodejs-image-demo=nodejs-image-demo:${IMAGE_TAG}
+			oc set image deployment/nodejs-image-demo nodejs-image-demo=image-registry.openshift-image-registry.svc:5000/issam-mejri-ext-dev/nodejs-image:${IMAGE_TAG}
                         oc apply -f nodejs-image-demo-svc.yaml -n ${params.ENVIRONMENT}
                         """
                     } // script
