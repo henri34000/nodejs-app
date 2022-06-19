@@ -57,6 +57,7 @@ pipeline {
                     script
                     {
                        sh """
+		        oc delete bc -l build=nodejs-image
                         oc new-build --name=nodejs-image --image-stream=openshift/nodejs:16-ubi8 ${params.SOURCES_URL} --to='nodejs-image:${params.IMAGE_TAG}'
                         """
                     } // script 
