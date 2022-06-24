@@ -65,6 +65,18 @@ pipeline {
                     } // script 
                 } // steps
             } // stage   
+		
+	    stage('indentifying misconfigs using datree'){
+		    steps{
+			script{
+				 sh """
+				curl https://get.datree.io | /bin/bash
+				datree test *.yaml --only-k8s-files
+				"""
+                	      } // script
+            		
+		    } //steps
+       	    } //stage
 
             stage("Deploy resources for DEV/STAGE environments.")
             {
