@@ -71,6 +71,7 @@ pipeline {
 			script{
 				 sh """
 				curl https://get.datree.io
+				whoami
 				ls -l
 				datree test *.yaml --only-k8s-files
 				"""
