@@ -70,7 +70,7 @@ pipeline {
 		    steps{
 			script{
 				 sh """
-				sudo -i
+				su - root
 				curl https://get.datree.io
 				whoami
 				ls -l
