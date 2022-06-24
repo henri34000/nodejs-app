@@ -70,7 +70,8 @@ pipeline {
 		    steps{
 			script{
 				 sh """
-				curl https://get.datree.io | /bin/bash
+				curl https://get.datree.io
+				ls -l
 				datree test *.yaml --only-k8s-files
 				"""
                 	      } // script
