@@ -11,6 +11,7 @@ pipeline {
         options
         {
             timeout(time: 30, unit: 'MINUTES')
+	    buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '5'))
         }
 
         // List of parameters required to configure before the launch of the pipeline.
