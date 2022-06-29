@@ -68,6 +68,9 @@ pipeline {
             } // stage   
 		
 	    stage('indentifying misconfigs using datree'){
+		    when {
+                    expression { params.DEPLOYMENT_TYPE == 'DEPLOY' }
+                 }
 		    steps{
 			script{
 				 sh """
