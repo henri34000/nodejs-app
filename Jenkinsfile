@@ -65,23 +65,7 @@ pipeline {
                         """
                     } // script 
                 } // steps
-            } // stage   
-		
-	    stage('indentifying misconfigs using datree'){
-		    when {
-                    expression { params.DEPLOYMENT_TYPE == 'DEPLOY' }
-                 }
-		    steps{
-			script{
-				 sh """
-				docker ps -a
-				curl https://get.datree.io | /bin.bash'
-				datree test *.yaml --only-k8s-files
-				"""
-                	      } // script
-            		
-		    } //steps
-       	    } //stage
+            } // stage
 
             stage("Deploy resources for DEV/STAGE environments.")
             {
