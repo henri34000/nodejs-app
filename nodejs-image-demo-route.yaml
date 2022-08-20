@@ -6,7 +6,7 @@ metadata:
     app: nodejs-image-demo
 spec:
   host: >-
-    nodejs-image-demo-issam-mejri-ext-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+    jenkins-issam-mejri-ext-dev.apps.sandbox.x8i5.p1.openshiftapps.com
   to:
     kind: Service
     name: nodejs-image-demo
