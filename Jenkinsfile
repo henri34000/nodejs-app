@@ -97,7 +97,7 @@ pipeline {
                     script
                     {
 			sh """
-                       	   oc apply -f nodejs-image-demo-route.yaml -n ${params.ENVIRONMENT}
+                       	   oc expose nodejs-image-demo -n ${params.ENVIRONMENT}
 			"""
                     } // script
                 } // steps
