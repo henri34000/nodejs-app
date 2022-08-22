@@ -97,7 +97,7 @@ pipeline {
                     script
                     {
 			sh """
-                       	   oc expose nodejs-image-demo -n ${params.ENVIRONMENT}
+                       	   oc expose nodejs-image-demo
 			"""
                     } // script
                 } // steps
