@@ -97,7 +97,7 @@ pipeline {
                     script
                     {
 			sh """
-                       	   oc expose nodejs-image-demo
+                       	   oc expose svc/nodejs-image-demo
 			"""
                     } // script
                 } // steps
