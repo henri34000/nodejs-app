@@ -4,7 +4,7 @@
   "description": "nodejs image demo",
   "author": "katjuell <kathleenjuell@gmail.com>",
   "license": "MIT",
-  "main": "app.js",
+  "main": "app2.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/katjuell/nodejs-image-demo.git"
