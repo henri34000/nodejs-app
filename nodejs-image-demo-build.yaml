@@ -1,7 +1,7 @@
 kind: BuildConfig
 apiVersion: build.openshift.io/v1
 metadata:
-  namespace: issam-mejri-ext-dev
+  namespace: hsimoes-dev
   name: nodejs-image-demo
   labels:
     app: nodejs-image-demo
@@ -11,7 +11,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: 'nodejs-image-demo:v1.1'
+      name: 'nodejs-image-demo:v1.0'
   successfulBuildsHistoryLimit: 5
   failedBuildsHistoryLimit: 5
   strategy:
@@ -24,13 +24,7 @@ spec:
   source:
     type: Git
     git:
-      uri: 'https://github.com/do-community/nodejs-image-demo.git'
+      uri: 'https://github.com/henri34000/nodejs-app.git'
   triggers:
-    - type: GitHub
-      github:
-        secret: 3GRrLUNEbz7r_lcxGCmF
-    - type: Generic
-      generic:
-        secret: 08IyMw4s1EsUbIba1sOZ
     - type: ConfigChange
     - type: ImageChange

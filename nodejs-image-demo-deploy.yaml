@@ -19,7 +19,7 @@ spec:
       containers:
         - name: nodejs-image-demo
           image: >-
-            image-registry.openshift-image-registry.svc:5000/issam-mejri-ext-dev/nodejs-image-demo:v1.0
+            image-registry.openshift-image-registry.svc:5000/hsimoes-dev/nodejs-image-demo:v1.0
           ports:
             - containerPort: 8080
               protocol: TCP
