@@ -98,6 +98,7 @@ pipeline {
 			sh """
 			    oc delete route nodejs-image-demo --ignore-not-found
                 oc expose svc/nodejs-image-demo
+                oc get route nodejs-image-demo
 			"""
                     } // script
                 } // steps
